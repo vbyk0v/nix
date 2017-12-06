@@ -1,0 +1,12 @@
+
+=repo=
+yum install epel-release
+
+=vbox=
+yum install dkms
+yum install kernel-devel
+yum groupinstall "Development Tools"
+
+
+Fedora:
+sudo dnf install dkms gcc kernel-devel kernel-headers

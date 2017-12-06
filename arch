@@ -1,0 +1,38 @@
+# arch
+1)    cfdisk
+      /boot   /dev/sda1
+      swap    /dev/sda2
+      /       /dev/sda3
+      /home   /dev/sda4
+* Select BIOS boot and partition type number 4 for fdisk, ef02 for gdisk, and bios_grub for parted.
+2)
+      mkfs.ext4 /dev/sda1 -L boot
+      mkswap    /dev/sda2 -L swap
+      mkfs.ext4 /dev/sda3 -L root
+      mkfs.ext4 /dev/sda4 -L home
+
+3)    mount /dev/sda3 /mnt
+      mkdir /mnt/boot
+      mkdir /mnt/home
+      mount /dev/sda1 /mnt/boot
+      mount /dev/sda4 /mnt/home
+      swapon /dev/sda2
+4)    
+      pacstrap -i /mnt base base-devel
+wifi=>pacstrap -i /mnt netctl dialog wpa_supplicant
+
+5)    arch-chroot /mnt pacman -S grub
+uefi=>arch-chroot /mnt pacman -S efibootmgr
+      # genfstab -U /mnt >> /mnt/etc/fstab
+      
+6)    arch-chroot /mnt /bin/bash
+      mkinitcpio -p linux
+      grub-install /dev/sda
+      grub-mkconfig -o /boot/grub/grub.cfg
+      
+7)    passwd
+      exit
+      umount /mnt/boot
+      umount /mnt/home
+      reboot
+      

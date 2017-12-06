@@ -1,0 +1,67 @@
+0)useradd wheel or:
+  ee /etc/group
+    wheel:*:0:root
+    wheel:*:0:root,user
+
+1)sudo:
+  pkg install sudo
+  visudo or:
+  ee /usr/local/etc/sudoers:
+    wheel        ALL=(ALL) ALL
+    wheel ALL=(ALL) NOPASSWD: ALL
+    
+2)update:
+	2.2) update sec:
+	freebsd-update fetch
+	freebsd-update install
+	freebsd-update rollback - gone wrong
+	
+	2.3)update pkg:
+	pkg update
+	
+3)install software pkg:
+	pkg install packet
+	pkg search packet
+	pkg info packet
+	pkg delete packet
+
+4)virtualbox:
+pkg install virtualbox-ose virtualbox-ose-additions
+
+ee /etc/rc.conf >>
+vboxguest_enable="YES"
+vboxservice_enable="YES"
+
+ee /boot/loader.conf >>
+vboxdrv_load="YES"
+
+5)FQDN
+ee /etc/rc.conf >> hostname = "hostname.domain.com"
+
+6) terminal resolution
+	#vidcontrol -i mode
+	#vidcontrol MODE_X
+/etc/rc.conf
+	vesa_load="YES"
+	allscreens_flags="MODE_X"
+	
+8) xorg + xfce + slim
+	pkg install xorg xfce slim
+	
+	ee /etc/rc.conf >>	
+	hald_enable="YES"
+	dbus_enable="YES"
+	slim_enable="YES"
+	moused_enable="YES"
+	
+	cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
+	
+	
+9)	Edit /usr/local/etc/slim.conf, set theme:
+
+	pkg install slim-themes
+	
+	/usr/local/share/slim/themes
+	
+	#current_theme       default
+	current_theme       fbsd
