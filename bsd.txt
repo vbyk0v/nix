@@ -65,3 +65,17 @@ ee /etc/rc.conf >> hostname = "hostname.domain.com"
 	
 	#current_theme       default
 	current_theme       fbsd
+10) intel drivers
+	pkg install xf86-video-intel
+	ee /usr/local/etc/X11/xorg.conf.d/driver-intel.conf
+	
+	Section "Device"
+		Identifier "Card0"
+		Driver "intel"
+	EndSection
+
+11) burn iso
+	pkg install pv
+	fdisk -BI /dev/da0
+	newfs_msdos /dev/da0sl
+	pv /home/disk.iso > /dev/sda0s1
