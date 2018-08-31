@@ -32,9 +32,6 @@ ee /etc/rc.conf >>
 vboxguest_enable="YES"
 vboxservice_enable="YES"
 
-ee /boot/loader.conf >>
-vboxdrv_load="YES"
-
 5)FQDN
 ee /etc/rc.conf >> hostname = "hostname.domain.com"
 
