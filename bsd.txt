@@ -49,7 +49,6 @@ ee /etc/rc.conf >> hostname = "hostname.domain.com"
 	hald_enable="YES"
 	dbus_enable="YES"
 	slim_enable="YES"
-	moused_enable="YES"
 	
 	cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
 	
