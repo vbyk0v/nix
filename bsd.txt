@@ -32,6 +32,12 @@ ee /etc/rc.conf >>
 vboxguest_enable="YES"
 vboxservice_enable="YES"
 
+4.1) https://kb.vmware.com/s/article/2149806
+	For a desktop system (with X11) :  pkg install open-vm-tools
+	For a server system (no X11) :  pkg install open-vm-tools-nox11  
+	/usr/local/etc/rc.d/vmware-guestd start
+
+
 5)FQDN
 ee /etc/rc.conf >> hostname = "hostname.domain.com"
 
