@@ -24,6 +24,13 @@
 	pkg search packet
 	pkg info packet
 	pkg delete packet
+	
+3.1)change mirror
+ee /etc/pkg/FreeBSD.conf 
+or
+ee /usr/local/etc/pkg.conf
+
+>>pkg.eu.FreeBSD.org
 
 4)virtualbox:
 pkg install virtualbox-ose virtualbox-ose-additions
