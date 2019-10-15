@@ -81,3 +81,10 @@ ee /etc/rc.conf >> hostname = "hostname.domain.com"
 	fdisk -BI /dev/da0
 	newfs_msdos /dev/da0sl
 	pv /home/disk.iso > /dev/sda0s1
+	
+12) change mirror
+ee /etc/pkg/FreeBSD.conf 
+or
+ee /usr/local/etc/pkg.conf
+
+>>pkg.eu.FreeBSD.org
