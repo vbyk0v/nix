@@ -29,8 +29,8 @@
 ee /etc/pkg/FreeBSD.conf 
 or
 ee /usr/local/etc/pkg.conf
-
 >>pkg.eu.FreeBSD.org
+pkg update
 
 4)virtualbox:
 pkg install virtualbox-ose virtualbox-ose-additions
