@@ -12,7 +12,7 @@
     
 2)update:
 	2.2) update sec:
-	freebsd-update fetch
+	freebsd-update fetch + (vi:q)
 	freebsd-update install
 	freebsd-update rollback - gone wrong
 	
