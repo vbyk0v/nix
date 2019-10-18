@@ -39,46 +39,21 @@ ee /etc/rc.conf >>
 vboxguest_enable="YES"
 vboxservice_enable="YES"
 
-4.1) https://kb.vmware.com/s/article/2149806
-	For a desktop system (with X11) :  pkg install open-vm-tools
-	For a server system (no X11) :  pkg install open-vm-tools-nox11  
-	/usr/local/etc/rc.d/vmware-guestd start
-
-
 5)FQDN
 ee /etc/rc.conf >> hostname = "hostname.domain.com"
 
-6) terminal resolution
-	#vidcontrol -i mode
-	#vidcontrol MODE_X
-/etc/rc.conf
-	vesa_load="YES"
-	allscreens_flags="MODE_X"
-	
-8) xorg + xfce + slim
-	pkg install xorg xfce slim
-	
+6) pkg install xorg openbox obconf obmenu openbox-themes slim slim-themes
 	ee /etc/rc.conf >>	
 	hald_enable="YES"
 	dbus_enable="YES"
 	slim_enable="YES"
 	
-	cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
-	
-	
-9)	Edit /usr/local/etc/slim.conf, set theme:
-
-	pkg install slim-themes
-	
-	/usr/local/share/slim/themes
-	
-	#current_theme       default
+	ee /usr/local/etc/slim.conf
 	current_theme       fbsd
-10) intel drivers
-	pkg install xf86-video-intel
-	ee /usr/local/etc/X11/xorg.conf.d/driver-intel.conf
 	
-	Section "Device"
-		Identifier "Card0"
-		Driver "intel"
-	EndSection
+	$ ee ~/.xinitrc
+	exec openbox-session
+	
+7) obconf
+	mkdir ~/.config/openbox
+	cp /usr/local/etc/xdg/openbox/menu.xml ~/.config/openbox
