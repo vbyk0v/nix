@@ -57,3 +57,13 @@ ee /etc/rc.conf >> hostname = "hostname.domain.com"
 7) obconf
 	mkdir ~/.config/openbox
 	cp /usr/local/etc/xdg/openbox/menu.xml ~/.config/openbox
+
+8)ee usr/local/etc/X11/xorg.conf.d/screen-resolution.conf
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "Card0"
+	SubSection "Display"
+	Modes      "1024x768"
+	EndSubSection
+EndSection
