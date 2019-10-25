@@ -42,7 +42,7 @@ vboxservice_enable="YES"
 5)FQDN
 ee /etc/rc.conf >> hostname = "hostname.domain.com"
 
-6) pkg install xorg openbox obconf obmenu openbox-themes slim slim-themes
+6) pkg install xorg xfce xfce4-goodies slim slim-themes
 	ee /etc/rc.conf >>	
 	hald_enable="YES"
 	dbus_enable="YES"
@@ -54,10 +54,6 @@ ee /etc/rc.conf >> hostname = "hostname.domain.com"
 	$ ee ~/.xinitrc
 	exec openbox-session
 	
-7) obconf
-	mkdir ~/.config/openbox
-	cp /usr/local/etc/xdg/openbox/menu.xml ~/.config/openbox
-
 8)ee usr/local/etc/X11/xorg.conf.d/screen-resolution.conf
 
 Section "Screen"
@@ -67,3 +63,10 @@ Section "Screen"
 	Modes      "1024x768"
 	EndSubSection
 EndSection
+9) cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
+ee ~/.xinitrc:
+	export LANG="ru_RU.UTF-8"
+	export LC_TYPE="ru_RU.UTF-8"
+10) mkdir ~/.icons
+    mkdir ~/.themes
+  
