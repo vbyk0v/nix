@@ -69,4 +69,5 @@ ee ~/.xinitrc:
 	export LC_TYPE="ru_RU.UTF-8"
 10) mkdir ~/.icons
     mkdir ~/.themes
-  
+11) cp font.ttf /usr/local/share/fonts/TTF
+
