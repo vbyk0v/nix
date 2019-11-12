@@ -71,3 +71,5 @@ ee ~/.xinitrc:
     mkdir ~/.themes
 11) cp font.ttf /usr/local/share/fonts/TTF
 
+12) nvidia - https://github.com/pouya-eghbali/freebsd-nvidia-optimus
+
