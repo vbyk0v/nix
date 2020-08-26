@@ -46,6 +46,7 @@ ee /etc/rc.conf >> hostname = "hostname.domain.com"
 	ee /etc/rc.conf >>	
 	hald_enable="YES"
 	dbus_enable="YES"
+	moused_enable="YES"
 	slim_enable="YES"
 	
 	ee /usr/local/etc/slim.conf
