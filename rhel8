@@ -9,6 +9,8 @@ setfont UniCyr_8x16 >> /etc/bashrc
 # dnf install --nogpgcheck https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
 # subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
+# yum install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+
 systemctl set-default graphical
 
 yum repolist
