@@ -1,6 +1,4 @@
-# subscription-manager register
-# subscription-manager list --available
-# subscription-manager attach --pool=8a85f69c671cb397054cfc365cb
+# subscription-manager register --auto-attach
 
 setfont UniCyr_8x16 >> /etc/bashrc
 
@@ -13,5 +11,9 @@ setfont UniCyr_8x16 >> /etc/bashrc
 
 systemctl set-default graphical
 
-yum repolist
-yum repolist enabled
+dnf repolist
+dnf repolist enabled
+
+dnf install cockpit
+systemctl enable --now cockpit.socket
+https://<ip>:9090
