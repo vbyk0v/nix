@@ -1,7 +1,7 @@
-0)useradd wheel or:
-  ee /etc/group
-    wheel:*:0:root
+0) ee /etc/group
     wheel:*:0:root,user
+    video
+    operator
 
 1)sudo:
   pkg install sudo
@@ -24,13 +24,6 @@
 	pkg search packet
 	pkg info packet
 	pkg delete packet
-	
-3.1)change mirror
-ee /etc/pkg/FreeBSD.conf 
-or
-ee /usr/local/etc/pkg.conf
->>pkg.eu.FreeBSD.org
-pkg update
 
 4)virtualbox:
 pkg install virtualbox-ose virtualbox-ose-additions
@@ -42,7 +35,7 @@ vboxservice_enable="YES"
 5)FQDN
 ee /etc/rc.conf >> hostname = "hostname.domain.com"
 
-6) pkg install xorg xfce xfce4-goodies slim slim-themes
+6) pkg install xorg xf86-video-intel xfce xfce4-goodies slim slim-themes
 	ee /etc/rc.conf >>	
 	hald_enable="YES"
 	dbus_enable="YES"
@@ -51,26 +44,12 @@ ee /etc/rc.conf >> hostname = "hostname.domain.com"
 	
 	ee /usr/local/etc/slim.conf
 	current_theme       fbsd
-	
-	$ ee ~/.xinitrc
-	exec openbox-session
-	
-8)ee usr/local/etc/X11/xorg.conf.d/screen-resolution.conf
+6.1) https://forums.freebsd.org/threads/how-to-use-the-old-or-the-new-i915kms-driver-for-intel-integrated-graphics-with-xorg.66732/
 
-Section "Screen"
-	Identifier "Screen0"
-	Device     "Card0"
-	SubSection "Display"
-	Modes      "1024x768"
-	EndSubSection
-EndSection
-9) cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
+7) cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
 ee ~/.xinitrc:
 	export LANG="ru_RU.UTF-8"
 	export LC_TYPE="ru_RU.UTF-8"
-10) mkdir ~/.icons
+8) mkdir ~/.icons
     mkdir ~/.themes
-11) cp font.ttf /usr/local/share/fonts/TTF
-
-12) nvidia - https://github.com/pouya-eghbali/freebsd-nvidia-optimus
-
+9) cp font.ttf /usr/local/share/fonts/TTF
