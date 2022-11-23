@@ -5,7 +5,6 @@
 
 1)sudo:
   pkg install sudo
-  visudo or:
   ee /usr/local/etc/sudoers:
     wheel        ALL=(ALL) ALL
     wheel ALL=(ALL) NOPASSWD: ALL
@@ -19,35 +18,34 @@
 	2.3)update pkg:
 	pkg update
 	
-3)install software pkg:
-	pkg install packet
-	pkg search packet
-	pkg info packet
-	pkg delete packet
-
-4)virtualbox:
-pkg install virtualbox-ose virtualbox-ose-additions
-
-ee /etc/rc.conf >>
-vboxguest_enable="YES"
-vboxservice_enable="YES"
-
-5)FQDN
-ee /etc/rc.conf >> hostname = "hostname.domain.com"
-
-6) pkg install xorg xf86-video-intel xfce xfce4-goodies slim slim-themes
-	ee /etc/rc.conf >>	
+3) pkg install drm-kmod xorg xfce xfce4-goodies slim slim-themes zsh intel-backlight
+	
+4)	ee /etc/rc.conf >>
+	rc_startmsgs=NO
+    kld_list="i915kms"	
 	hald_enable="YES"
 	dbus_enable="YES"
 	moused_enable="YES"
 	slim_enable="YES"
 	
-	ee /usr/local/etc/slim.conf
-	current_theme       fbsd
-6.1) https://forums.freebsd.org/threads/how-to-use-the-old-or-the-new-i915kms-driver-for-intel-integrated-graphics-with-xorg.66732/
+	ee /boot/loader.conf >>
+	kern.vty="vt"
+	autoboot_delay="2"
+	boot_mute=YES
+	
+	ee /etc/sysctl.conf >>
+	kern.vt.enable_bell=0
+	hw.syscons.bell=0
 
-7) cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
-ee ~/.xinitrc:
+5) 	zsh
+	pkg install zsh 
+	chsh -s zsh user	
+	
+6) ee /usr/local/etc/slim.conf
+	current_theme       fbsd
+	
+7)cp /usr/local/etc/xdg/xfce4/xinitrc ~/.xinitrc
+  ee ~/.xinitrc:
 	export LANG="ru_RU.UTF-8"
 	export LC_TYPE="ru_RU.UTF-8"
 8) mkdir ~/.icons
